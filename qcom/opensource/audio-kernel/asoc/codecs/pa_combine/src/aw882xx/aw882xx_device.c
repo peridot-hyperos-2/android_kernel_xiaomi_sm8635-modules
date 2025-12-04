@@ -698,11 +698,11 @@ int aw882xx_dev_init_cali_re(struct aw_device *aw_dev) {
 
   if (cali_desc->mode) {
     if (cali_desc->cali_re == AW_ERRO_CALI_VALUE) {
-      ret =
-          aw882xx_cali_read_re_from_nvram(&cali_desc->cali_re, aw_dev->channel);
+      ret = aw882xx_cali_read_re_from_nvram(aw_dev, &cali_desc->cali_re,
+				 aw_dev->channel);
       if (ret) {
-        aw_dev_info(aw_dev->dev, "read nvram cali failed, use default Re");
-        cali_desc->cali_re = AW_ERRO_CALI_VALUE;
+	aw_dev_info(aw_dev->dev, "read nvram cali failed, use default Re");
+	cali_desc->cali_re = AW_ERRO_CALI_VALUE;
         cali_desc->cali_result = CALI_RESULT_NONE;
         return 0;
       }
