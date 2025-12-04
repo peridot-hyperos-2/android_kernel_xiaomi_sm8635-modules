@@ -66,6 +66,11 @@ static int aw_cali_write_cali_re_to_file(int32_t cali_re, int channel)
 	return 0;
 }
 
+static int aw_cali_write_re_to_nvram(int32_t cali_re, int32_t channel)
+{
+	return aw_cali_write_cali_re_to_file(cali_re, channel);
+}
+
 static int aw_cali_get_read_cali_re(struct aw_device *aw_dev, int32_t *cali_re,
 			    int channel)
 {
